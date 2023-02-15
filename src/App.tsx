@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { GlobalStyles } from './styles/GlobalStyles';
 import { Helmet } from 'react-helmet';
 import Home from './components/Home';
@@ -7,10 +8,13 @@ import {
   Routes,
 } from 'react-router-dom';
 import Dashboard from './components/Dashboard';
-import { useState } from 'react';
+import Upgrade from './components/Upgrade';
+import Order from './components/Order';
 import useLocalStorage from './hooks/useLocalStorage';
+
 function App() {
-  const [defaultAccount, setDefaultAccount] = useLocalStorage('address', 
+  const [defaultAccount, setDefaultAccount] = useLocalStorage(
+    'address',
     null
   );
   const [userBalance, setUserBalance] = useState<string | null>(null);
@@ -37,7 +41,9 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home {...childProps} />} />
-          <Route path="/dashboard" element={<Dashboard {...childProps}/>} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/upgrade" element={<Upgrade />} />
+          <Route path="/order" element={<Order />} />
         </Routes>
       </Router>
     </>
