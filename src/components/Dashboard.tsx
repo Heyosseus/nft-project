@@ -1,49 +1,81 @@
-import React from 'react';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import styled from 'styled-components';
 import { List } from 'phosphor-react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import image1 from '../assets/dashboard/iPhone 13/Group 1083.png';
-import image2 from '../assets/dashboard/iPhone 13/Group 1084.png';
-import image3 from '../assets/dashboard/iPhone 13/Group 1085.png';
-import image4 from '../assets/dashboard/iPhone 13/Group 1086.png';
-import arrow from '../assets/dashboard/arrow.png';
-import aloe from '../assets/dashboard/AloeVera.png';
-import { A11y, Navigation, Pagination, Scrollbar } from 'swiper';
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
+import { Images } from '../utils/Images';
+import { NFTList } from '../utils/Images';
+import busd from '../assets/dashboard/busd.png';
+import Slider from 'react-slick';
+import {
+  Container,
+  Address,
+  Arrow,
+  CardImages,
+  CardText,
+  Circle,
+  Heading,
+  ImageContainer,
+  ImageContainer2,
+  NFTCaption,
+  NFTCard,
+  NFTContainer,
+  NFTImage,
+  Paragraph,
+  Text,
+  Card,
+} from '../styles/DashBoardStyles';
+import { Button } from '../styles/HomeStyle';
+import Navbar from './navbar/Navbar';
+import { useNavigate } from 'react-router-dom';
 
-function Dashboard(props: {
-  defaultAccount: string | null;
-}): JSX.Element {
-  const { defaultAccount } = props;
-  const shortAddress =
-    defaultAccount &&
-    `${defaultAccount.substring(
-      0,
-      2
-    )}......${defaultAccount.substring(defaultAccount.length - 5)}`;
+const images = NFTList;
+export const captions = [
+  'NFT Level 2',
+  'NFT Level 3',
+  'NFT Level 5',
+  'NFT Level 7',
+  'NFT Level 10',
+];
+export const settings = {
+  dots: true,
+  arrows: false,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 2,
+  slidesToScroll: 2,
+  customPaging: function () {
+    return (
+      <div
+        style={{
+          width: '3px',
+          height: '3px',
+          backgroundColor: 'white',
+          borderRadius: '50%',
+          margin: '0 5px 42px 5px',
+        }}
+      ></div>
+    );
+  },
+};
 
+function Dashboard(): JSX.Element {
+  const navigate = useNavigate();
+  const navigateHandler = () => {
+    navigate('/upgrade');
+  };
   return (
     <div>
       <Container>
-        <Navbar>
-          <List size={24} color="white" />
-          <Address>
-            {shortAddress} <Circle></Circle>
-          </Address>
-        </Navbar>
+        <Navbar />
         <Card>
           <Heading>To start, select the NFT level you want</Heading>
           <ImageContainer>
-            <CardImages src={image1}></CardImages>
-            <CardImages src={image4}></CardImages>
+            <CardImages src={Images.image1}></CardImages>
+            <CardImages src={Images.image4}></CardImages>
           </ImageContainer>
           <ImageContainer2>
-            <CardImages src={image3}></CardImages>
-            <CardImages src={image2}></CardImages>
+            <CardImages src={Images.image3}></CardImages>
+            <CardImages src={Images.image2}></CardImages>
           </ImageContainer2>
           <CardText>
             Choose your NFT below <Arrow></Arrow>
@@ -51,21 +83,64 @@ function Dashboard(props: {
         </Card>
         <Text>NFT Levels</Text>
         <Paragraph>Click on each to see more details.</Paragraph>
-        <Swiper
-          modules={[Navigation, Pagination, Scrollbar, A11y]}
-          navigation
-          pagination={{ clickable: true }}
-          scrollbar={{ draggable: true }}
-        >
-          <SwiperSlide>
-            <div>
+        <Slider {...settings}>
+          {images.map((image, index) => (
+            <NFTContainer key={image}>
               <NFTCard>
-                <NFTImage src={aloe}></NFTImage>
+                <NFTImage src={image} alt="slider-img" />
+                <NFTCaption>{captions[index]}</NFTCaption>
               </NFTCard>
-            </div>
-          </SwiperSlide>
-        
-        </Swiper>
+            </NFTContainer>
+          ))}
+        </Slider>
+        <Infos>
+          NFT Price
+          <Price>
+            <BUSD src={busd}></BUSD>
+            10
+          </Price>
+        </Infos>
+        <Infos>
+          Multiplier
+          <Price>0%</Price>
+        </Infos>
+        <Infos>
+          NFT Delivery Fee
+          <Price>
+            <BUSD src={busd}></BUSD>
+            10
+          </Price>
+        </Infos>
+        <Infos>
+          Total Price
+          <Price>
+            <BUSD src={busd}></BUSD>
+            10
+          </Price>
+        </Infos>
+        <Identifier>
+          <BUSD src={busd}></BUSD> = BUSD
+        </Identifier>
+        <LoginCard>
+          <LoginHeading>Choose a Username*</LoginHeading>
+          <LoginText>
+            *Once you set a username, you can’t change it.
+          </LoginText>
+          <LoginParagraph>
+            You’ll use it to share with friends and earn rewards!
+          </LoginParagraph>
+          <LoginInput></LoginInput>
+        </LoginCard>
+        <LoginCard>
+          <LoginHeading>Did you get invited to GPM?</LoginHeading>
+          <LoginParagraph>
+            If so, please enter your referrer’s username.
+          </LoginParagraph>
+          <LoginInput></LoginInput>
+        </LoginCard>
+        <LoginButton onClick={navigateHandler}>
+          Get my NFT
+        </LoginButton>
       </Container>
     </div>
   );
@@ -73,111 +148,79 @@ function Dashboard(props: {
 
 export default Dashboard;
 
-const Container = styled.div`
+export const Infos = styled.div`
+  width: 345px;
+  height: 78px;
+  border-radius: 20px;
+  background: #1c2135;
   display: flex;
-  flex-direction: column;
-  padding: 22px;
-`;
-
-const Navbar = styled.div`
-  display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  padding: 0 32px;
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 14px;
 `;
 
-const Address = styled.div`
-  width: 146px;
-  height: 44px;
-  background: #1c2135;
-  border-radius: 30px;
+export const Price = styled.div`
   display: flex;
-  color: white;
-  justify-content: space-evenly;
   align-items: center;
+  gap: 8px;
 `;
 
-const Circle = styled.div`
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  background: #5ed3d0;
+export const BUSD = styled.img`
+  background-size: contain;
+  width: 15px;
+  height: 15px;
 `;
 
-const Card = styled.div`
+export const Identifier = styled(Price)`
+  margin-left: auto;
+  margin-top: 15px;
+`;
+
+const LoginCard = styled.div`
   width: 345px;
-  background: #1c2135;
+  padding: 14px 32px 32px 31px;
   display: flex;
   flex-direction: column;
-  margin-top: 18px;
-  align-items: center;
-  padding-bottom: 16px;
+  background: #1c2135;
+  margin-top: 32px;
   border-radius: 20px;
 `;
 
-const Heading = styled.h2`
+const LoginHeading = styled.h2`
   font-size: 20px;
   font-weight: 700;
-  line-height: 30px;
-  text-align: center;
-  width: 279px;
-  margin-top: 18px;
 `;
 
-const ImageContainer = styled.div`
-  display: flex;
-  margin-left: 34px;
-  margin-top: 8px;
+const LoginText = styled.p`
+  font-size: 11px;
+  opacity: 0.8;
 `;
-
-const ImageContainer2 = styled.div`
-  display: flex;
-  margin-right: 44px;
-`;
-
-const CardImages = styled.img`
-  margin-left: 16px;
-`;
-
-const CardText = styled.div`
-  background: linear-gradient(
-    91.63deg,
-    #5ed3d0 1.38%,
-    #a188f5 73.06%
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  font-weight: 700;
-  margin-top: 18px;
-  display: flex;
-`;
-
-const Arrow = styled.div`
-  background: url(${arrow});
-  width: 30px;
-  height: 35px;
-  background-size: contain;
-  background-repeat: no-repeat;
-`;
-
-const Text = styled.h1`
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 36px;
-  text-align: center;
-  margin-top: 20px;
-`;
-const Paragraph = styled.p`
-  font-weight: 500;
+const LoginParagraph = styled.p`
   font-size: 14px;
-  line-height: 21px;
-  text-align: center;
+  font-weight: 500;
+  opacity: 0.9;
+  margin-top: 14px;
+`;
+const LoginInput = styled.input`
+  width: 283px;
+  height: 40px;
+  border-radius: 12px;
+  background: #091020;
+  border: none;
+  outline: none;
+  padding: 0 16px;
+  font-size: 14px;
+  margin-top: 16px;
+  color: white;
 `;
 
-const NFTCard = styled.div`
-  width: 155px;
-  border-radius: 40px;
-  background: #1c2135;
+export const LoginButton = styled(Button)`
+  width: 190px;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  font-weight: 700;
 `;
-const NFTImage = styled.img``;
