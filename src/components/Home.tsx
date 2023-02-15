@@ -100,7 +100,7 @@ function Home(props: any) {
         <Card>
           <Title>Connect your wallet to proceed.</Title>
           <Button onClick={connectWalletHandler}>
-            {connButtonText}
+            Connect Wallet
           </Button>
           <Wrapper>
             <Line></Line>
