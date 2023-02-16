@@ -33,7 +33,7 @@ const styles: any = [
   '',
   'luminosity',
   '',
-  'luminosity',
+  '',
 ];
 const bg: any = [
   '',
@@ -112,10 +112,10 @@ function Upgrade(props: any) {
 
 export default Upgrade;
 
-const CardImage = styled.img`
+export const CardImage = styled.img`
   width: 268px;
   height: 245px;
 `;
-const CardButton = styled(Button)`
+export const CardButton = styled(Button)`
   margin-top: 0;
 `;

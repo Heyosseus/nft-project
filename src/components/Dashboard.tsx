@@ -204,7 +204,7 @@ const LoginParagraph = styled.p`
   opacity: 0.9;
   margin-top: 14px;
 `;
-const LoginInput = styled.input`
+export const LoginInput = styled.input`
   width: 283px;
   height: 40px;
   border-radius: 12px;
@@ -215,6 +215,11 @@ const LoginInput = styled.input`
   font-size: 14px;
   margin-top: 16px;
   color: white;
+  :hover {
+    border: 2px solid #5ed3d0;
+    transition: 0.2s all ease;
+    outline: none;
+  }
 `;
 
 export const LoginButton = styled(Button)`
