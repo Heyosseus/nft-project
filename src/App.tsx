@@ -9,8 +9,9 @@ import {
 } from 'react-router-dom';
 import Dashboard from './components/Dashboard';
 import Upgrade from './components/Upgrade';
-import Order from './components/Order';
+import Order from './components/order/Order';
 import useLocalStorage from './hooks/useLocalStorage';
+import Shipping from './components/order/Shipping';
 
 function App() {
   const [defaultAccount, setDefaultAccount] = useLocalStorage(
@@ -44,6 +45,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/upgrade" element={<Upgrade />} />
           <Route path="/order" element={<Order />} />
+          <Route path="/shipping" element={<Shipping />} />
         </Routes>
       </Router>
     </>
