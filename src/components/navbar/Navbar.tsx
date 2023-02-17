@@ -1,5 +1,6 @@
 import { List } from 'phosphor-react';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import useLocalStorage from '../../hooks/useLocalStorage';
 import { Address, Circle, Nav } from '../../styles/DashBoardStyles';
 import { Images } from '../../utils/Images';
@@ -16,10 +17,16 @@ function Navbar() {
       2
     )}......${defaultAccount.substring(defaultAccount.length - 5)}`;
 
+
+  const navigate = useNavigate();
+  const navigateHandler = () => {
+    navigate('/menu');
+  }
+
   return (
     <div>
       <Nav>
-        <List size={24} color="white" />
+        <List size={24} color="white" onClick={navigateHandler} />
         <Address>
           {shortAddress}
           <Circle>

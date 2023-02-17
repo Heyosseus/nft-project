@@ -217,7 +217,7 @@ export const LoginInput = styled.input`
   color: white;
   :hover {
     border: 2px solid #5ed3d0;
-    transition: 0.2s all ease;
+    transition: 0.1s all ease;
     outline: none;
   }
 `;

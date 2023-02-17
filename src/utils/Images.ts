@@ -14,7 +14,24 @@ import line from '../assets/dashboard/iPhone 13/Line 79.png';
 import triangle from '../assets/dashboard/triangle.png';
 import trblack from '../assets/dashboard/triangle-black.png';
 
+//////menu
+import affiliate from '../assets/menu/affiliate.png';
+import home from '../assets/menu/home.png';
+import card from '../assets/menu/card.png';
+import disconnect from '../assets/menu/disconnect.png';
+import profile from '../assets/menu/profile.png';
+import close from '../assets/menu/close.png';
+import title from '../assets/menu/title.png';
+import britain from '../assets/menu/britain.png';
+import france from '../assets/menu/france.png';
+import spain from '../assets/menu/spain.png';
+
+
+
 export  const Images = { image1, image2, image3, image4 , circle, danceNft, elipse, line, triangle, trblack};
 
 export const NFTList = [aloe, dianthus, nymphea, palmatum, oak];
 
+export const Icon= {affiliate, home, card, disconnect, profile, close, title};
+
+export const Flag = {britain, france, spain};

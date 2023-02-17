@@ -12,6 +12,8 @@ import Upgrade from './components/Upgrade';
 import Order from './components/order/Order';
 import useLocalStorage from './hooks/useLocalStorage';
 import Shipping from './components/order/Shipping';
+import Menu from './components/menu/Menu';
+import Referal from './components/referals/Referal';
 
 function App() {
   const [defaultAccount, setDefaultAccount] = useLocalStorage(
@@ -46,6 +48,8 @@ function App() {
           <Route path="/upgrade" element={<Upgrade />} />
           <Route path="/order" element={<Order />} />
           <Route path="/shipping" element={<Shipping />} />
+          <Route path="/menu" element={<Menu />} />
+          <Route path="/referal" element={<Referal />} />
         </Routes>
       </Router>
     </>
