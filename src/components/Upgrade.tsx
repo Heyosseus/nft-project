@@ -28,13 +28,7 @@ import busd from '../assets/dashboard/busd.png';
 import { useNavigate } from 'react-router-dom';
 
 const images = NFTList;
-const styles: any = [
-  'luminosity',
-  '',
-  'luminosity',
-  '',
-  '',
-];
+const styles: any = ['luminosity', '', 'luminosity', '', ''];
 const bg: any = [
   '',
   `linear-gradient(94.52deg, #5ed3d0 1.81%, #89a2fb 100%)`,
@@ -46,8 +40,8 @@ function Upgrade(props: any) {
   const { defaultAccount } = props;
   const navigate = useNavigate();
   const navigateHandler = () => {
-    navigate('/order')
-  }
+    navigate('/order');
+  };
   return (
     <div>
       <Container>
@@ -62,20 +56,22 @@ function Upgrade(props: any) {
           You can only upgrade for a higher level NFT. Click on each
           to see more details.
         </Paragraph>
-        <Slider {...settings}>
-          {images.map((image, index) => (
-            <NFTContainer key={image}>
-              <NFTCard style={{ background: `${bg[index]}` }}>
-                <NFTImage
-                  src={image}
-                  alt="slider-img"
-                  style={{ mixBlendMode: styles[index] }}
-                />
-                <NFTCaption>{captions[index]}</NFTCaption>
-              </NFTCard>
-            </NFTContainer>
-          ))}
-        </Slider>
+        <div style={{ width: '100%' }}>
+          <Slider {...settings}>
+            {images.map((image, index) => (
+              <NFTContainer key={image}>
+                <NFTCard style={{ background: `${bg[index]}` }}>
+                  <NFTImage
+                    src={image}
+                    alt="slider-img"
+                    style={{ mixBlendMode: styles[index] }}
+                  />
+                  <NFTCaption>{captions[index]}</NFTCaption>
+                </NFTCard>
+              </NFTContainer>
+            ))}
+          </Slider>
+        </div>
         <Infos>
           My current NFT
           <Price>

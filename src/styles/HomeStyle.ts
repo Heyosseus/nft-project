@@ -33,6 +33,9 @@ export const Card = styled.div`
   z-index: 11;
   position: absolute;
   top: 65%;
+  @media (min-width: 568px) {
+    width: 535px;
+  }
 `;
 
 export const Title = styled.h1`
@@ -43,6 +46,11 @@ export const Title = styled.h1`
   width: 191px;
   text-align: center;
   margin-top: 12px;
+  @media (min-width: 568px) {
+    font-size: 26px;
+    width: 454px;
+    margin-top: 32px;
+  }
 `;
 
 export const Button = styled.button`
@@ -59,6 +67,11 @@ export const Button = styled.button`
   :hover {
     cursor: pointer;
   }
+  @media (min-width: 568px) {
+    font-size: 18px;
+    width: 210px;
+    height:55px;
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -74,6 +87,11 @@ export const Line = styled.div`
   height: 1px;
   background: #89a2fb;
   width: 90px;
+  @media (min-width: 468px) {
+    margin:0 24px;
+    width: 174px;
+  
+  }
 `;
 
 export const Paragraph = styled.p`
@@ -85,6 +103,10 @@ export const Paragraph = styled.p`
   opacity: 0.8;
   padding: 0 24px;
   margin-top: 34px;
+  @media (min-width: 568px) {
+   font-size: 14px;
+    width: 449px;
+  }
 `;
 
 export const SecondaryButton = styled.div`
@@ -95,6 +117,11 @@ export const SecondaryButton = styled.div`
   background-size: cover;
   :hover {
     cursor: pointer;
+  }
+  @media (min-width: 568px) {
+    font-size: 18px;
+    width: 210px;
+    height: 58px;
   }
 `;
 
@@ -107,6 +134,7 @@ export const Polygon = styled.div`
   position: absolute;
   top: 90%;
   left: 3%;
+ 
 `;
 
 export const Polygon2 = styled(Polygon)`

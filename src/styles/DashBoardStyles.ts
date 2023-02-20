@@ -1,15 +1,19 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 import arrow from '../assets/dashboard/arrow.png';
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   padding: 22px;
+  align-items: center;
+  @media (min-width: 678px) {
+    padding: 22px 42px;
+  }
 `;
 
 export const Nav = styled.div`
+  width: 90vw;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
 `;
@@ -23,6 +27,11 @@ export const Address = styled.div`
   color: white;
   justify-content: space-evenly;
   align-items: center;
+  @media (min-width: 678px) {
+    width: 186px;
+    height: 48px;
+    font-size: 18px;
+  }
 `;
 
 export const Circle = styled.div`
@@ -30,6 +39,12 @@ export const Circle = styled.div`
   height: 26px;
   border-radius: 50%;
   background: #5ed3d0;
+  @media (min-width: 678px) {
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+    padding-left: 2px;
+  }
 `;
 
 export const Card = styled.div`
@@ -41,6 +56,12 @@ export const Card = styled.div`
   align-items: center;
   padding-bottom: 16px;
   border-radius: 20px;
+  @media (min-width: 678px) {
+    width: 532px;
+    display: flex;
+    align-self: center;
+    margin-top: 28px;
+  }
 `;
 
 export const Heading = styled.h2`
@@ -50,12 +71,16 @@ export const Heading = styled.h2`
   text-align: center;
   width: 279px;
   margin-top: 18px;
+   @media (min-width: 678px) {
+    font-size: 24px;
+   }
 `;
 
 export const ImageContainer = styled.div`
   display: flex;
   margin-left: 34px;
   margin-top: 8px;
+  
 `;
 
 export const ImageContainer2 = styled.div`
@@ -65,6 +90,10 @@ export const ImageContainer2 = styled.div`
 
 export const CardImages = styled.img`
   margin-left: 16px;
+  @media (min-width: 678px) {
+    width: 152px;
+    height: 134px;
+  }
 `;
 
 export const CardText = styled.div`
@@ -95,6 +124,9 @@ export const Text = styled.h1`
   line-height: 36px;
   text-align: center;
   margin-top: 20px;
+    @media (min-width: 678px) {
+      margin-top: 32px;
+    }
 `;
 export const Paragraph = styled.p`
   font-weight: 500;
@@ -102,6 +134,9 @@ export const Paragraph = styled.p`
   line-height: 21px;
   text-align: center;
   margin-top: 8px;
+  @media (min-width: 678px) {
+    margin-top: 16px;
+  }
 `;
 export const NFTContainer = styled.div`
   display: flex;
@@ -109,6 +144,9 @@ export const NFTContainer = styled.div`
   justify-content: space-between;
   margin-top: 22px;
   margin-bottom: 24px;
+  @media (min-width: 678px) {
+    margin-top: 42px;
+  }
 `;
 export const NFTCard = styled.div`
   width: 165px;

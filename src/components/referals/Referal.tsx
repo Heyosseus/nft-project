@@ -77,6 +77,11 @@ const ReferalButton = styled.button`
   color: #ffffff;
   border: none;
   height: 40px;
+  @media (min-width: 678px){
+    width: 162px;
+    height: 54px;
+    font-size: 18px;
+  }
 `;
 
 const BtnContainer = styled.div`

@@ -1,18 +1,15 @@
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import styled from 'styled-components';
-import { List } from 'phosphor-react';
 import { Images } from '../utils/Images';
 import { NFTList } from '../utils/Images';
 import busd from '../assets/dashboard/busd.png';
 import Slider from 'react-slick';
 import {
   Container,
-  Address,
   Arrow,
   CardImages,
   CardText,
-  Circle,
   Heading,
   ImageContainer,
   ImageContainer2,
@@ -45,7 +42,7 @@ export const settings = {
   slidesToScroll: 2,
   customPaging: function () {
     return (
-      <div
+      <Div
         style={{
           width: '3px',
           height: '3px',
@@ -53,10 +50,19 @@ export const settings = {
           borderRadius: '50%',
           margin: '0 5px 42px 5px',
         }}
-      ></div>
+      ></Div>
     );
   },
 };
+
+if (window.innerWidth >= 678) {
+  settings.slidesToShow = 4;
+  settings.slidesToScroll = 3;
+} else {
+  // Reset the slidesToShow property to 2
+  settings.slidesToShow = 2;
+  settings.slidesToScroll = 2;
+}
 
 function Dashboard(): JSX.Element {
   const navigate = useNavigate();
@@ -83,16 +89,18 @@ function Dashboard(): JSX.Element {
         </Card>
         <Text>NFT Levels</Text>
         <Paragraph>Click on each to see more details.</Paragraph>
-        <Slider {...settings}>
-          {images.map((image, index) => (
-            <NFTContainer key={image}>
-              <NFTCard>
-                <NFTImage src={image} alt="slider-img" />
-                <NFTCaption>{captions[index]}</NFTCaption>
-              </NFTCard>
-            </NFTContainer>
-          ))}
-        </Slider>
+        <div style={{width: '100%'}}>
+          <Slider {...settings}>
+            {images.map((image, index) => (
+              <NFTContainer key={image}>
+                <NFTCard>
+                  <NFTImage src={image} alt="slider-img" />
+                  <NFTCaption>{captions[index]}</NFTCaption>
+                </NFTCard>
+              </NFTContainer>
+            ))}
+          </Slider>
+        </div>
         <Infos>
           NFT Price
           <Price>
@@ -121,23 +129,25 @@ function Dashboard(): JSX.Element {
         <Identifier>
           <BUSD src={busd}></BUSD> = BUSD
         </Identifier>
-        <LoginCard>
-          <LoginHeading>Choose a Username*</LoginHeading>
-          <LoginText>
-            *Once you set a username, you can’t change it.
-          </LoginText>
-          <LoginParagraph>
-            You’ll use it to share with friends and earn rewards!
-          </LoginParagraph>
-          <LoginInput></LoginInput>
-        </LoginCard>
-        <LoginCard>
-          <LoginHeading>Did you get invited to GPM?</LoginHeading>
-          <LoginParagraph>
-            If so, please enter your referrer’s username.
-          </LoginParagraph>
-          <LoginInput></LoginInput>
-        </LoginCard>
+        <LoginContainer>
+          <LoginCard>
+            <LoginHeading>Choose a Username*</LoginHeading>
+            <LoginText>
+              *Once you set a username, you can’t change it.
+            </LoginText>
+            <LoginParagraph>
+              You’ll use it to share with friends and earn rewards!
+            </LoginParagraph>
+            <LoginInput></LoginInput>
+          </LoginCard>
+          <LoginCard>
+            <LoginHeading>Did you get invited to GPM?</LoginHeading>
+            <LoginParagraph>
+              If so, please enter your referrer’s username.
+            </LoginParagraph>
+            <LoginInput></LoginInput>
+          </LoginCard>
+        </LoginContainer>
         <LoginButton onClick={navigateHandler}>
           Get my NFT
         </LoginButton>
@@ -160,6 +170,11 @@ export const Infos = styled.div`
   font-size: 20px;
   font-weight: 700;
   margin-top: 14px;
+  @media (min-width: 678px) {
+    font-size: 22px;
+    width: 90vw;
+    margin-top: 24px;
+  }
 `;
 
 export const Price = styled.div`
@@ -177,6 +192,10 @@ export const BUSD = styled.img`
 export const Identifier = styled(Price)`
   margin-left: auto;
   margin-top: 15px;
+  @media (min-width: 678px) {
+    font-size: 18px;
+    margin-top: 24px;
+  }
 `;
 
 const LoginCard = styled.div`
@@ -187,6 +206,10 @@ const LoginCard = styled.div`
   background: #1c2135;
   margin-top: 32px;
   border-radius: 20px;
+  @media (min-width: 678px) {
+    width: 336px;
+    justify-content: space-between;
+  }
 `;
 
 const LoginHeading = styled.h2`
@@ -228,4 +251,18 @@ export const LoginButton = styled(Button)`
   align-self: center;
   justify-content: center;
   font-weight: 700;
+`;
+
+const LoginContainer = styled.div`
+  @media (min-width: 678px) {
+    display: flex;
+    gap: 22px;
+  }
+`;
+
+const Div = styled.div`
+  @media (min-width: 678px) {
+    display: flex;
+    justify-content: center;
+  }
 `;

@@ -26,7 +26,7 @@ function Navbar() {
   return (
     <div>
       <Nav>
-        <List size={24} color="white" onClick={navigateHandler} />
+        <List size={28} color="white" onClick={navigateHandler} />
         <Address>
           {shortAddress}
           <Circle>

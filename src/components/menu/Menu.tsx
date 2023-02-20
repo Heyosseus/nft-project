@@ -5,7 +5,7 @@ import { Container } from '../../styles/DashBoardStyles';
 import { Icon, Flag } from '../../utils/Images';
 function Menu() {
   const navigate = useNavigate();
-  const history = useHistory();
+
   const handleMenuClose = () => {
     navigate(-1);
   };
@@ -17,8 +17,8 @@ function Menu() {
             src={Icon.close}
             onClick={handleMenuClose}
           ></CloseIcon>
-          <Title src={Icon.title} alt="" />
         </Header>
+          <Title src={Icon.title} alt="" />
         <Content>
           <MenuCard onClick={() => navigate('/dashboard')}>
             <div style={{ width: 30 }}>
@@ -70,12 +70,17 @@ const Wrapper = styled.div`
   min-height: 100vh;
   box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.16);
   backdrop-filter: blur(50px);
+
 `;
 const Header = styled.div`
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  width: 235px;
+  @media (min-width: 678px) {
+    display: flex;
+    justify-content: space-between;
+    width: 80vw;
+    margin-top: 32px;
+  }
 `;
 
 const Icons = styled.img`
@@ -106,6 +111,13 @@ const MenuCard = styled.div`
   background: #091020cc;
   margin-top: 16px;
   border-radius: 12px;
+  @media (min-width: 678px) {
+    display: flex;
+    height: 64px;
+    justify-content: space-between;
+    padding: 0 44px;
+    width: 80vw;
+  }
 `;
 
 const Text = styled.p`
@@ -113,6 +125,9 @@ const Text = styled.p`
   font-size: 16px;
   line-height: 22px;
   align-items: flex-start;
+  @media (min-width: 678px) {
+    font-size: 18px;
+  }
 `;
 
 const Content = styled.div`
@@ -121,8 +136,8 @@ const Content = styled.div`
 `;
 
 const Title = styled.img`
-  width: 130px;
-  height: 26px;
+  width: 168px;
+  height: 38px;
 `;
 
 const Flags = styled.div`
@@ -133,14 +148,25 @@ const Flags = styled.div`
   position: absolute;
   bottom: 10px;
   width: 320px;
+  @media (min-width: 678px) {
+    width: 90vw;
+  }
 `;
 
 const FlagIcon = styled.img`
   width: 52px;
   height: 41px;
+  @media (min-width: 678px) {
+    width: 62px;
+    height: 56px;
+  }
 `;
 
 const FlagIconBrtn = styled.img`
   width: 62px;
   height: 56px;
+  @media (min-width: 678px) {
+    width: 86px;
+    height: 76px;
+  }
 `;

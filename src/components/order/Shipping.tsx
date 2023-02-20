@@ -62,6 +62,8 @@ const ShippingCard = styled.div`
   margin-top: 44px;
   justify-content: space-evenly;
   padding-bottom: 10vh;
+  margin-top: 34px;
+  
 `;
 const Status = styled.div`
   display: flex;
