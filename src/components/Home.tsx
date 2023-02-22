@@ -24,6 +24,7 @@ import {
   Vector3,
   Wrapper,
 } from '../styles/HomeStyle';
+import styled from 'styled-components';
 
 declare global {
   interface Window {
@@ -96,26 +97,28 @@ function Home(props: any) {
     <div>
       <Container>
         <Logo src={logo}></Logo>
-        <Image src={image}></Image>
-        <Card>
-          <Title>Connect your wallet to proceed.</Title>
-          <Button onClick={connectWalletHandler}>
-            Connect Wallet
-          </Button>
-          <Wrapper>
-            <Line></Line>
-            or
-            <Line></Line>
-          </Wrapper>
-          <Paragraph>
-            If you don’t have a wallet, you can simply follow the
-            steps to create one with your e-mail address.
-          </Paragraph>
-          <SecondaryButton></SecondaryButton>
-          <Elipse></Elipse>
-          <Elipse2></Elipse2>
-          <Elipse3></Elipse3>
-        </Card>
+        <CardContainer>
+          <Image src={image}></Image>
+          <Card>
+            <Title>Connect your wallet to proceed.</Title>
+            <Button onClick={connectWalletHandler}>
+              Connect Wallet
+            </Button>
+            <Wrapper>
+              <Line></Line>
+              or
+              <Line></Line>
+            </Wrapper>
+            <Paragraph>
+              If you don’t have a wallet, you can simply follow the
+              steps to create one with your e-mail address.
+            </Paragraph>
+            <SecondaryButton></SecondaryButton>
+            <Elipse></Elipse>
+            <Elipse2></Elipse2>
+            <Elipse3></Elipse3>
+          </Card>
+        </CardContainer>
         <div>
           <Polygon></Polygon>
           <Polygon2></Polygon2>
@@ -129,3 +132,11 @@ function Home(props: any) {
 }
 
 export default Home;
+
+const CardContainer = styled.div`
+  width: 400px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;

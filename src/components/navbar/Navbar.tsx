@@ -1,9 +1,11 @@
 import { List } from 'phosphor-react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
 import useLocalStorage from '../../hooks/useLocalStorage';
 import { Address, Circle, Nav } from '../../styles/DashBoardStyles';
 import { Images } from '../../utils/Images';
+
 
 function Navbar() {
   const [defaultAccount, setDefaultAccount] = useLocalStorage(
@@ -17,16 +19,15 @@ function Navbar() {
       2
     )}......${defaultAccount.substring(defaultAccount.length - 5)}`;
 
-
   const navigate = useNavigate();
   const navigateHandler = () => {
     navigate('/menu');
-  }
+  };
 
   return (
     <div>
       <Nav>
-        <List size={28} color="white" onClick={navigateHandler} />
+        <ListIcon size={28} color="white" onClick={navigateHandler} />
         <Address>
           {shortAddress}
           <Circle>
@@ -39,3 +40,12 @@ function Navbar() {
 }
 
 export default Navbar;
+
+
+
+const ListIcon = styled(List)`
+  @media (min-width: 1024px) {
+    display: none;
+  }
+`;
+

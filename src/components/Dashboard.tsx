@@ -24,6 +24,8 @@ import {
 import { Button } from '../styles/HomeStyle';
 import Navbar from './navbar/Navbar';
 import { useNavigate } from 'react-router-dom';
+import NavbarMenu from './menu/NavbarMenu';
+import Aside from './aside/Aside';
 
 const images = NFTList;
 export const captions = [
@@ -55,11 +57,13 @@ export const settings = {
   },
 };
 
-if (window.innerWidth >= 678) {
-  settings.slidesToShow = 4;
+if (window.innerWidth >= 1024) {
+  settings.slidesToShow = 5;
+  settings.slidesToScroll = 3;
+} else if (window.innerWidth >= 768) {
+  settings.slidesToShow = 3;
   settings.slidesToScroll = 3;
 } else {
-  // Reset the slidesToShow property to 2
   settings.slidesToShow = 2;
   settings.slidesToScroll = 2;
 }
@@ -72,85 +76,107 @@ function Dashboard(): JSX.Element {
   return (
     <div>
       <Container>
-        <Navbar />
-        <Card>
-          <Heading>To start, select the NFT level you want</Heading>
-          <ImageContainer>
-            <CardImages src={Images.image1}></CardImages>
-            <CardImages src={Images.image4}></CardImages>
-          </ImageContainer>
-          <ImageContainer2>
-            <CardImages src={Images.image3}></CardImages>
-            <CardImages src={Images.image2}></CardImages>
-          </ImageContainer2>
-          <CardText>
-            Choose your NFT below <Arrow></Arrow>
-          </CardText>
-        </Card>
-        <Text>NFT Levels</Text>
-        <Paragraph>Click on each to see more details.</Paragraph>
-        <div style={{width: '100%'}}>
-          <Slider {...settings}>
-            {images.map((image, index) => (
-              <NFTContainer key={image}>
-                <NFTCard>
-                  <NFTImage src={image} alt="slider-img" />
-                  <NFTCaption>{captions[index]}</NFTCaption>
-                </NFTCard>
-              </NFTContainer>
-            ))}
-          </Slider>
-        </div>
-        <Infos>
-          NFT Price
-          <Price>
-            <BUSD src={busd}></BUSD>
-            10
-          </Price>
-        </Infos>
-        <Infos>
-          Multiplier
-          <Price>0%</Price>
-        </Infos>
-        <Infos>
-          NFT Delivery Fee
-          <Price>
-            <BUSD src={busd}></BUSD>
-            10
-          </Price>
-        </Infos>
-        <Infos>
-          Total Price
-          <Price>
-            <BUSD src={busd}></BUSD>
-            10
-          </Price>
-        </Infos>
-        <Identifier>
-          <BUSD src={busd}></BUSD> = BUSD
-        </Identifier>
-        <LoginContainer>
-          <LoginCard>
-            <LoginHeading>Choose a Username*</LoginHeading>
-            <LoginText>
-              *Once you set a username, you can’t change it.
-            </LoginText>
-            <LoginParagraph>
-              You’ll use it to share with friends and earn rewards!
-            </LoginParagraph>
-            <LoginInput></LoginInput>
-          </LoginCard>
-          <LoginCard>
-            <LoginHeading>Did you get invited to GPM?</LoginHeading>
-            <LoginParagraph>
-              If so, please enter your referrer’s username.
-            </LoginParagraph>
-            <LoginInput></LoginInput>
-          </LoginCard>
-        </LoginContainer>
-        <LoginButton onClick={navigateHandler}>
-          Get my NFT
-        </LoginButton>
+        <Display>
+          <Navbar />
+        </Display>
+        <DisplayForDesktop>
+          <NavbarMenu />
+        </DisplayForDesktop>
+        <MiddleContent>
+          <Card>
+            <HeaderContainer>
+              <Heading>
+                To start, select the NFT level you want
+              </Heading>
+              <CardText>
+                Choose your NFT below <Arrow></Arrow>
+              </CardText>
+            </HeaderContainer>
+            <div>
+              <ImageContainer>
+                <CardImages src={Images.image1}></CardImages>
+                <CardImages src={Images.image4}></CardImages>
+              </ImageContainer>
+              <ImageContainer2>
+                <CardImages src={Images.image3}></CardImages>
+                <CardImages src={Images.image2}></CardImages>
+              </ImageContainer2>
+            </div>
+          </Card>
+          <Text>NFT Levels</Text>
+          <Paragraph>Click on each to see more details.</Paragraph>
+          <ForSlider>
+            <Slider {...settings}>
+              {images.map((image, index) => (
+                <NFTContainer key={image}>
+                  <NFTCard>
+                    <NFTImage src={image} alt="slider-img" />
+                    <NFTCaption>{captions[index]}</NFTCaption>
+                  </NFTCard>
+                </NFTContainer>
+              ))}
+            </Slider>
+          </ForSlider>
+          <div>
+            <WrapperForInfos>
+              <Infos>
+                NFT Price
+                <Price>
+                  <BUSD src={busd}></BUSD>
+                  10
+                </Price>
+              </Infos>
+              <Infos>
+                Multiplier
+                <Price>0%</Price>
+              </Infos>
+            </WrapperForInfos>
+            <WrapperForInfos>
+              <Infos>
+                NFT Delivery Fee
+                <Price>
+                  <BUSD src={busd}></BUSD>
+                  10
+                </Price>
+              </Infos>
+              <Infos>
+                Total Price
+                <Price>
+                  <BUSD src={busd}></BUSD>
+                  10
+                </Price>
+              </Infos>
+            </WrapperForInfos>
+          </div>
+          <Identifier>
+            <BUSD src={busd}></BUSD> = BUSD
+          </Identifier>
+          <LoginContainer>
+            <LoginCard>
+              <LoginHeading>Choose a Username*</LoginHeading>
+              <LoginText>
+                *Once you set a username, you can’t change it.
+              </LoginText>
+              <LoginParagraph>
+                You’ll use it to share with friends and earn rewards!
+              </LoginParagraph>
+              <LoginInput></LoginInput>
+            </LoginCard>
+            <LoginCard>
+              <LoginHeading>Did you get invited to GPM?</LoginHeading>
+              <LoginParagraph>
+                If so, please enter your referrer’s username.
+              </LoginParagraph>
+              <LoginInput></LoginInput>
+            </LoginCard>
+          </LoginContainer>
+          <LoginButton onClick={navigateHandler}>
+            Get my NFT
+          </LoginButton>
+        </MiddleContent>
+        <DisplayForDesktop>
+          <Aside />
+        </DisplayForDesktop>
       </Container>
     </div>
   );
@@ -175,6 +201,10 @@ export const Infos = styled.div`
     width: 90vw;
     margin-top: 24px;
   }
+  @media (min-width: 1024px) {
+    width: 30vw;
+    height: 121px;
+  }
 `;
 
 export const Price = styled.div`
@@ -196,6 +226,9 @@ export const Identifier = styled(Price)`
     font-size: 18px;
     margin-top: 24px;
   }
+  @media (min-width: 1024px) {
+    display: none;
+  }
 `;
 
 const LoginCard = styled.div`
@@ -209,6 +242,11 @@ const LoginCard = styled.div`
   @media (min-width: 678px) {
     width: 336px;
     justify-content: space-between;
+  }
+  @media (min-width: 1024px) {
+    display: flex;
+    width: 30vw;
+    padding: 22px 44px;
   }
 `;
 
@@ -243,14 +281,23 @@ export const LoginInput = styled.input`
     transition: 0.1s all ease;
     outline: none;
   }
+  @media (min-width: 1024px) {
+   font-size: 18px;
+    width: 425px;
+    height: 50px;
+  }
 `;
 
 export const LoginButton = styled(Button)`
   width: 190px;
   display: flex;
-  align-self: center;
   justify-content: center;
   font-weight: 700;
+  @media (min-width: 1024px) {
+    display: flex;
+    align-items: center;
+    
+  }
 `;
 
 const LoginContainer = styled.div`
@@ -264,5 +311,60 @@ const Div = styled.div`
   @media (min-width: 678px) {
     display: flex;
     justify-content: center;
+  }
+`;
+
+export const ForSlider = styled.div`
+  width: 40vh;
+  @media (min-width: 678px) {
+    width: 50vh;
+  }
+  @media (min-width: 1024px) {
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+  }
+`;
+export const Display = styled.div`
+  @media (min-width: 1024px) {
+    display: none;
+  }
+`;
+export const DisplayForDesktop = styled.div`
+  @media (max-width: 1024px) {
+    display: none;
+  }
+`;
+
+export const HeaderContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  @media (min-width: 1024px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 200px;
+  }
+`;
+
+export const MiddleContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media (min-width: 1024px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 75vw;
+  }
+`;
+
+export const WrapperForInfos = styled.div`
+  @media (min-width: 1024px) {
+    display: flex;
+    gap: 22px;
   }
 `;

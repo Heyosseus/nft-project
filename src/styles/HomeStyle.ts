@@ -11,6 +11,9 @@ export const Container = styled.div`
   justify-content: center;
   padding: 26px;
   position: relative;
+  @media (min-width: 1024px) {
+    display: flex;
+  }
 `;
 
 export const Logo = styled.img`
@@ -20,21 +23,39 @@ export const Logo = styled.img`
 export const Image = styled.img`
   background-size: cover;
   z-index: 1;
+
+  @media (min-width: 1024px) {
+    position: absolute;
+    top: 14vh;
+    right: -330px;
+    z-index: 111;
+    width: 428px;
+    height: 490px;
+  }
 `;
 
 export const Card = styled.div`
   background: #1c2135;
   border-radius: 20px;
-  width: 284px;
+  width: 294px;
   padding-bottom: 24px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   z-index: 11;
   position: absolute;
   top: 65%;
   @media (min-width: 568px) {
     width: 535px;
+  }
+  @media (min-width: 1024px) {
+    width: 665px;
+    /* height: 400px; */
+    border-radius: 48px;
+    position: absolute;
+    top: 20vh;
+    z-index: 11;
   }
 `;
 
@@ -50,6 +71,10 @@ export const Title = styled.h1`
     font-size: 26px;
     width: 454px;
     margin-top: 32px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 30px;
+    width: 524px;
   }
 `;
 
@@ -70,7 +95,12 @@ export const Button = styled.button`
   @media (min-width: 568px) {
     font-size: 18px;
     width: 210px;
-    height:55px;
+    height: 55px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 20px;
+    width: 240px;
+    height: 58px;
   }
 `;
 
@@ -88,9 +118,12 @@ export const Line = styled.div`
   background: #89a2fb;
   width: 90px;
   @media (min-width: 468px) {
-    margin:0 24px;
+    margin: 0 24px;
     width: 174px;
-  
+  }
+  @media (min-width: 1024px) {
+    margin: 0 44px;
+    width: 204px;
   }
 `;
 
@@ -104,8 +137,11 @@ export const Paragraph = styled.p`
   padding: 0 24px;
   margin-top: 34px;
   @media (min-width: 568px) {
-   font-size: 14px;
+    font-size: 14px;
     width: 449px;
+  }
+  @media (min-width: 1024px) {
+    line-height: 22px;
   }
 `;
 
@@ -123,6 +159,10 @@ export const SecondaryButton = styled.div`
     width: 210px;
     height: 58px;
   }
+  @media (min-width: 1024px) {
+    width: 228px;
+    height: 64px;
+  }
 `;
 
 export const Polygon = styled.div`
@@ -134,7 +174,13 @@ export const Polygon = styled.div`
   position: absolute;
   top: 90%;
   left: 3%;
- 
+  @media (min-width: 1024px) {
+    top: 30vh;
+    left: 62vh;
+    width: 55px;
+    height: 40px;
+    display: none;
+  }
 `;
 
 export const Polygon2 = styled(Polygon)`
@@ -142,12 +188,26 @@ export const Polygon2 = styled(Polygon)`
   position: absolute;
   top: 45%;
   left: 84%;
+  @media (min-width: 1024px) {
+    top: 20vh;
+    left: 120vh;
+    width: 140px;
+    height: 55px;
+    display: none;
+  }
 `;
 
 export const Vector = styled(Polygon)`
   background-image: url(${vector});
   top: 35%;
   left: 13%;
+  @media (min-width: 1024px) {
+    top: 60vh;
+    left: 80vh;
+    width: 70px;
+    height: 50px;
+    display: none;
+  }
 `;
 
 export const Vector2 = styled(Vector)`
@@ -155,6 +215,11 @@ export const Vector2 = styled(Vector)`
   top: 58%;
   z-index: 111;
   left: 16%;
+  @media (min-width: 1024px) {
+    top: 20vh;
+    left: 95vh;
+    display: none;
+  }
 `;
 
 export const Vector3 = styled(Vector)`
@@ -162,13 +227,27 @@ export const Vector3 = styled(Vector)`
   top: 110%;
   z-index: 111;
   left: 86%;
+  @media (min-width: 1024px) {
+    top: 40vh;
+    left: 140vh;
+    width: 70px;
+    height: 60px;
+    display: none;
+  }
 `;
 
-export const Elipse = styled(Polygon)`
+export const Elipse = styled.div`
+  background-size: cover;
   background-image: url(${elipse});
   position: absolute;
   top: 6%;
   left: 92%;
+  @media (min-width: 1024px) {
+    width: 20px;
+    height: 20px;
+    left: -10%;
+    top: 80%;
+  }
 `;
 
 export const Elipse2 = styled(Elipse)`
@@ -176,6 +255,11 @@ export const Elipse2 = styled(Elipse)`
   height: 19px;
   top: 90%;
   left: 4%;
+  @media (min-width: 1024px) {
+    width: 35px;
+    height: 35px;
+    top: 0;
+  }
 `;
 
 export const Elipse3 = styled(Elipse)`
@@ -183,4 +267,9 @@ export const Elipse3 = styled(Elipse)`
   height: 11px;
   top: 101%;
   left: 94%;
+  @media (min-width: 1024px) {
+    width: 25px;
+    height: 25px;
+    left: 80%;
+  }
 `;

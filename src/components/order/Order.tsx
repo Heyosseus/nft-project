@@ -10,63 +10,89 @@ import {
 } from '../../styles/DashBoardStyles';
 import Navbar from '../navbar/Navbar';
 import { Images } from '../../utils/Images';
-import {  CardImage } from '../Upgrade';
+import { CardImage } from '../Upgrade';
 import styled from 'styled-components';
-import { LoginButton, LoginInput } from '../Dashboard';
+import {
+  Display,
+  DisplayForDesktop,
+  LoginButton,
+  LoginInput,
+  MiddleContent,
+} from '../Dashboard';
 import { useNavigate } from 'react-router-dom';
+import NavbarMenu from '../menu/NavbarMenu';
+import Aside from '../aside/Aside';
 
 function Order() {
-   const navigate = useNavigate();
-   const navigateHandler = () => {
-     navigate('/shipping');
-   };
+  const navigate = useNavigate();
+  const navigateHandler = () => {
+    navigate('/shipping');
+  };
   return (
     <div>
       <Container>
-        <Navbar />
-        <Card>
-          <Heading>
-            You’re just a few steps away from your card!
-          </Heading>
-          <CardImage src={Images.danceNft}></CardImage>
-          <CardText>
-            Order now <Arrow></Arrow>
-          </CardText>
-        </Card>
-        <Textorder>Order your NFT Level 5 card</Textorder>
-        <TextParagraph>Personal Information</TextParagraph>
-        <Form>
-          <Label>First Name</Label>
-          <Inputs></Inputs>
-        </Form>
-        <Form>
-          <Label>Last Name</Label>
-          <Inputs></Inputs>
-        </Form>
-        <Form>
-          <Label>E-Mail*</Label>
-          <Inputs type="email"></Inputs>
-        </Form>
-        <Form>
-          <Label>Phone Number*</Label>
-          <Inputs type="tel"></Inputs>
-        </Form>
-        <TextParagraph style={{ marginTop: 34 }}>
-          Shipping Information
-        </TextParagraph>
-        <Form>
-          <Label>Country*</Label>
-          <Inputs></Inputs>
-        </Form>
-        <Form>
-          <Label>Street, Number and Unit*</Label>
-          <Inputs></Inputs>
-        </Form>
-        <Form>
-          <Label>Additional Delivery Notes*</Label>
-          <Inputs></Inputs>
-        </Form>
-        <LoginButton onClick={navigateHandler}>Order Now</LoginButton>
+        <Display>
+          <Navbar />
+        </Display>
+        <DisplayForDesktop>
+          <NavbarMenu />
+        </DisplayForDesktop>
+        <MiddleContent>
+          <Card>
+            <Heading>
+              You’re just a few steps away from your card!
+            </Heading>
+            <CardImage src={Images.danceNft}></CardImage>
+            <CardText>
+              Order now <Arrow></Arrow>
+            </CardText>
+          </Card>
+          <Textorder>Order your NFT Level 5 card</Textorder>
+          <TextParagraph>Personal Information</TextParagraph>
+          <Wrapper>
+            <InputContainer>
+              <Form>
+                <Label>First Name</Label>
+                <Inputs></Inputs>
+              </Form>
+              <Form>
+                <Label>Last Name</Label>
+                <Inputs></Inputs>
+              </Form>
+            </InputContainer>
+            <InputContainer>
+              <Form>
+                <Label>E-Mail*</Label>
+                <Inputs type="email"></Inputs>
+              </Form>
+              <Form>
+                <Label>Phone Number*</Label>
+                <Inputs type="tel"></Inputs>
+              </Form>
+            </InputContainer>
+          </Wrapper>
+          <TextParagraph style={{ marginTop: 34 }}>
+            Shipping Information
+          </TextParagraph>
+          <Form>
+            <Label>Country*</Label>
+            <Inputs></Inputs>
+          </Form>
+          <Form>
+            <Label>Street, Number and Unit*</Label>
+            <Inputs></Inputs>
+          </Form>
+          <Form>
+            <Label>Additional Delivery Notes*</Label>
+            <Inputs></Inputs>
+          </Form>
+          <LoginButton onClick={navigateHandler}>
+            Order Now
+          </LoginButton>
+        </MiddleContent>
+        <DisplayForDesktop>
+          <Aside />
+        </DisplayForDesktop>
       </Container>
     </div>
   );
@@ -105,6 +131,9 @@ const Form = styled.form`
     justify-content: space-between;
     margin-top: 34px;
   }
+  @media (min-width: 1024px) {
+    width: 26vw;
+  }
 `;
 const Label = styled.label`
   font-size: 16px;
@@ -121,5 +150,22 @@ const Inputs = styled(LoginInput)`
     align-self: center;
     height: 44px;
   }
+  @media (min-width: 1024px) {
+    width: 16vw;
+  }
 `;
 
+const InputContainer = styled.div`
+  @media (min-width: 1024px) {
+    display: flex;
+    gap: 24px;
+  }
+`;
+
+const Wrapper = styled.div`
+  /* @media (min-width: 1024px) {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  } */
+`;

@@ -17,8 +17,8 @@ function Menu() {
             src={Icon.close}
             onClick={handleMenuClose}
           ></CloseIcon>
-        </Header>
           <Title src={Icon.title} alt="" />
+        </Header>
         <Content>
           <MenuCard onClick={() => navigate('/dashboard')}>
             <div style={{ width: 30 }}>
@@ -70,11 +70,12 @@ const Wrapper = styled.div`
   min-height: 100vh;
   box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.16);
   backdrop-filter: blur(50px);
-
 `;
 const Header = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  width: 100%;
   @media (min-width: 678px) {
     display: flex;
     justify-content: space-between;
@@ -83,7 +84,7 @@ const Header = styled.div`
   }
 `;
 
-const Icons = styled.img`
+export const Icons = styled.img`
   width: 18px;
   height: 16px;
 `;
@@ -92,17 +93,17 @@ const CloseIcon = styled.img`
   width: 22px;
   height: 18px;
 `;
-const HomeIcon = styled.img`
+export const HomeIcon = styled.img`
   width: 15px;
   height: 16px;
 `;
-const ProfileIcon = styled.img`
+export const ProfileIcon = styled.img`
   width: 19px;
   height: 13px;
   margin-right: 6px;
 `;
 
-const MenuCard = styled.div`
+export const MenuCard = styled.div`
   display: flex;
   gap: 42px;
   height: 54px;
@@ -111,6 +112,7 @@ const MenuCard = styled.div`
   background: #091020cc;
   margin-top: 16px;
   border-radius: 12px;
+  width: 90vw;
   @media (min-width: 678px) {
     display: flex;
     height: 64px;
@@ -120,7 +122,7 @@ const MenuCard = styled.div`
   }
 `;
 
-const Text = styled.p`
+export const Text = styled.p`
   font-weight: 600;
   font-size: 16px;
   line-height: 22px;
@@ -130,17 +132,21 @@ const Text = styled.p`
   }
 `;
 
-const Content = styled.div`
+export const Content = styled.div`
   margin-top: 44px;
   position: relative;
 `;
 
-const Title = styled.img`
-  width: 168px;
-  height: 38px;
+export const Title = styled.img`
+  width: 106px;
+  height: 25px;
+  @media (min-width: 678px) {
+    width: 168px;
+    height: 38px;
+  }
 `;
 
-const Flags = styled.div`
+export const Flags = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -153,7 +159,7 @@ const Flags = styled.div`
   }
 `;
 
-const FlagIcon = styled.img`
+export const FlagIcon = styled.img`
   width: 52px;
   height: 41px;
   @media (min-width: 678px) {
@@ -162,7 +168,7 @@ const FlagIcon = styled.img`
   }
 `;
 
-const FlagIconBrtn = styled.img`
+export const FlagIconBrtn = styled.img`
   width: 62px;
   height: 56px;
   @media (min-width: 678px) {

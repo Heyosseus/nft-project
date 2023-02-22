@@ -60,10 +60,12 @@ export default Shipping;
 const ShippingCard = styled.div`
   display: flex;
   margin-top: 44px;
-  justify-content: space-evenly;
   padding-bottom: 10vh;
   margin-top: 34px;
-  
+  width: 310px;
+  justify-content: space-between;
+
+ 
 `;
 const Status = styled.div`
   display: flex;

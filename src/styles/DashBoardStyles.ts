@@ -8,6 +8,15 @@ export const Container = styled.div`
   align-items: center;
   @media (min-width: 678px) {
     padding: 22px 42px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  @media (min-width: 1024px) {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
   }
 `;
 
@@ -16,6 +25,11 @@ export const Nav = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media (min-width: 1024px) {
+    display: flex;
+    width: 10vh;
+    align-items: flex-start;
+  }
 `;
 
 export const Address = styled.div`
@@ -54,13 +68,20 @@ export const Card = styled.div`
   flex-direction: column;
   margin-top: 18px;
   align-items: center;
-  padding-bottom: 16px;
+  padding-bottom: 18px;
   border-radius: 20px;
   @media (min-width: 678px) {
     width: 532px;
     display: flex;
     align-self: center;
     margin-top: 28px;
+  }
+  @media (min-width: 1024px) {
+    width: 65vw;
+    display: flex;
+    flex-direction: row;
+    margin-left: 44px;
+    justify-content: space-around;
   }
 `;
 
@@ -71,16 +92,22 @@ export const Heading = styled.h2`
   text-align: center;
   width: 279px;
   margin-top: 18px;
-   @media (min-width: 678px) {
+  @media (min-width: 678px) {
     font-size: 24px;
-   }
+  }
+  @media (min-width: 1024px) {
+    font-size: 32px;
+    width: 404px;
+    line-height: 48px;
+    letter-spacing: 1px;
+    text-align: left;
+  }
 `;
 
 export const ImageContainer = styled.div`
   display: flex;
   margin-left: 34px;
   margin-top: 8px;
-  
 `;
 
 export const ImageContainer2 = styled.div`
@@ -93,6 +120,10 @@ export const CardImages = styled.img`
   @media (min-width: 678px) {
     width: 152px;
     height: 134px;
+  }
+  @media (min-width: 1024px) {
+    width: 156px;
+    height: 148px;
   }
 `;
 
@@ -108,6 +139,12 @@ export const CardText = styled.div`
   font-weight: 700;
   margin-top: 18px;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  @media (min-width: 1024px) {
+    font-size: 24px;
+    justify-content: flex-start;
+  }
 `;
 
 export const Arrow = styled.div`
@@ -124,9 +161,13 @@ export const Text = styled.h1`
   line-height: 36px;
   text-align: center;
   margin-top: 20px;
-    @media (min-width: 678px) {
-      margin-top: 32px;
-    }
+  @media (min-width: 678px) {
+    margin-top: 32px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 32px;
+    line-height: 48px;
+  }
 `;
 export const Paragraph = styled.p`
   font-weight: 500;
@@ -136,6 +177,9 @@ export const Paragraph = styled.p`
   margin-top: 8px;
   @media (min-width: 678px) {
     margin-top: 16px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 18px;
   }
 `;
 export const NFTContainer = styled.div`
@@ -153,11 +197,19 @@ export const NFTCard = styled.div`
   border-radius: 40px;
   background: #1c2135;
   position: relative;
+  @media (min-width: 1024px) {
+    width: 196px;
+    height: 224px;
+  }
 `;
 export const NFTImage = styled.img`
   width: 153px;
   height: 163px;
   background-size: contain;
+  @media (min-width: 1024px) {
+    width: 186px;
+    height: 190px;
+  }
 `;
 
 export const NFTCaption = styled.p`
