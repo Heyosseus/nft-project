@@ -26,7 +26,11 @@ import britain from '../assets/menu/britain.png';
 import france from '../assets/menu/france.png';
 import spain from '../assets/menu/spain.png';
 
-
+//////shipping
+import circe1 from '../assets/circle1.png';
+import circe2 from '../assets/circle2.png';
+import horizontal from '../assets/horizontal.png';
+import horizontal1 from '../assets/horizontal1.png';
 
 export  const Images = { image1, image2, image3, image4 , circle, danceNft, elipse, line, triangle, trblack};
 
@@ -35,3 +39,5 @@ export const NFTList = [aloe, dianthus, nymphea, palmatum, oak];
 export const Icon= {affiliate, home, card, disconnect, profile, close, title};
 
 export const Flag = {britain, france, spain};
+
+export const StatusShipping = {circe1, circe2, horizontal, horizontal1}

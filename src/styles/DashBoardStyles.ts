@@ -46,6 +46,11 @@ export const Address = styled.div`
     height: 48px;
     font-size: 18px;
   }
+  @media (min-width: 1024px) {
+    width: 213px;
+    height: 56px;
+    border-radius: 20px;
+  }
 `;
 
 export const Circle = styled.div`
